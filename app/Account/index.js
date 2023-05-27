@@ -16,8 +16,8 @@ import {  ScrollView,  StyleSheet,View  } from 'react-native';
 
 // import { HStack, VStack } from 'react-native-flex-layout';
 const MyComponent = () => (
-  // <View style={styles.margin}>
   <ScrollView vertical={true} showsVerticalScrollIndicator={false}  >
+    <View style={styles.container}>
   <List.Section >
     {/* <List.Subheader>Some title</List.Subheader> */}
     <List.Item
@@ -76,12 +76,13 @@ const MyComponent = () => (
  left={() => <List.Icon  icon={props => <Help width={26} height={26}{...props} />}  />}
 />
   </List.Section>
+   </View>
   </ScrollView>
-  // </View>
 );
 const styles = StyleSheet.create({
   container: {
-    height: '50%',
+    padding: 16,
+   
   },
   playingSpace: {
     backgroundColor: 'white',
