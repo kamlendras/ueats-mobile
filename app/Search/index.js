@@ -1,21 +1,14 @@
 import React from 'react';
-
-
-
 import Search from '../mag/Search'
-
-
-const ImageAPI = () => {
-return (
-  <>
- 
-        <Search/>
-    
-
-  </>
-);
-};
-
-
-
-export default ImageAPI;
+import Browse from './Browse'
+import { Stack } from "expo-router";
+export default function Library() {
+  return (
+      <>
+  
+          <Search/>
+          <Browse/>
+      
+      </>
+  );
+}

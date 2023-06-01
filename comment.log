@@ -1,0 +1,12 @@
+   <ProgressBar
+      indeterminate
+      progress={0.8}
+      color={MD3Colors.error50}
+      style={{ marginTop: 20, height: 10, width: undefined }}
+    /> 
+
+      <SafeAreaView
+      style={{ flex: 1, backgroundColor: "white", barStyle: "light-content" }}
+       >
+        <StatusBar style="light" backgroundColor="black" translucent={true} /> 
+       <Stack.Screen options={{  headerShown: false }} />  

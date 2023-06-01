@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, Button } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import * as Brightness from 'expo-brightness';
+import { ProgressBar, MD3Colors } from 'react-native-paper';
 export default function App() {
   useEffect(() => {
     (async () => {
@@ -16,6 +17,7 @@ export default function App() {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
   const [text, setText] = useState('Not yet scanned')
+ 
 
   const askForCameraPermission = () => {
     (async () => {
@@ -54,6 +56,12 @@ export default function App() {
   // Return the View
   return (
     <View style={styles.container}>
+        <ProgressBar
+      indeterminate
+      progress={0.8}
+      color={MD3Colors.error50}
+      style={{ marginTop: 20, height: 10, width: 100, }}
+    /> 
       <View style={styles.barcodebox}>
         <BarCodeScanner
           onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
@@ -61,7 +69,8 @@ export default function App() {
       </View>
       <Text style={styles.maintext}>{text}</Text>
 
-      {scanned && <Button title={'Scan again?'} onPress={() => setScanned(false)} color='black' />}
+      {scanned   && <Button title={'Scan again?'} onPress={() => setScanned(false)} color='black' />}
+    
     </View>
   );
 }
@@ -85,5 +94,10 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     // borderRadius: 30,
     backgroundColor: '#06c167'
-  }
+  },
+  progress: {
+    height: 10,
+    width: 100,
+   
+  },
 });

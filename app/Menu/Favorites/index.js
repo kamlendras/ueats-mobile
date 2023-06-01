@@ -9,15 +9,16 @@ export default function Library() {
     
         >
 
-        <Lottie style={styles.cartinit} source={require('../../assets/cart3.json')} autoPlay loop />
-        <Text  style={styles.text}>You have 0 Items In Cart</Text> 
+        <Lottie style={styles.cartinit} source={require('../../../assets/favorites.json')} autoPlay loop />
+        <Text  style={styles.text}>Your Favorites will appear here.</Text> 
              <View   style={styles.button}>
          <Button
          mode="contained-tonal"
          onPress={() => {}}
        
        >
-        Add Items To Cart
+       
+Browse
        </Button>
        </View>
         </>
@@ -53,7 +54,7 @@ const styles = StyleSheet.create({
     cartinit: {
  
         alignItems:'center',
-     marginLeft:10,
+    //  marginLeft:10,
         
         // borderColor: 'white',
         // borderWidth: 1,

@@ -9,16 +9,17 @@ export default function Library() {
     
         >
 
-        <Lottie style={styles.cartinit} source={require('../../assets/cart3.json')} autoPlay loop />
-        <Text  style={styles.text}>You have 0 Items In Cart</Text> 
+        <Lottie style={styles.cartinit} source={require('../../../assets/gifts.json')} autoPlay loop />
+        <Text  style={styles.text}>Your Gifts will appear here.</Text> 
              <View   style={styles.button}>
-         <Button
+         {/* <Button
          mode="contained-tonal"
          onPress={() => {}}
        
        >
-        Add Items To Cart
-       </Button>
+       
+Apply Coupon
+       </Button> */}
        </View>
         </>
       
@@ -41,8 +42,8 @@ const styles = StyleSheet.create({
       alignItems:'center',
       textAlign:'center',
       fontWeight:'bold',
-      fontSize: 15 ,
-   Color:'black',
+      fontSize: 20 ,
+       Color:'black',
       position: "absolute",
       width: "100%",
       bottom: 60,
@@ -53,7 +54,10 @@ const styles = StyleSheet.create({
     cartinit: {
  
         alignItems:'center',
-     marginLeft:10,
+        position: "absolute",
+        width: "100%",
+        bottom: 80,
+    //  marginLeft:10,
         
         // borderColor: 'white',
         // borderWidth: 1,
