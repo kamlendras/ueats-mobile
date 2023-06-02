@@ -12,6 +12,9 @@ import Coupon from './Coupon'
 import Gifts from './Gifts'
 import Share from './Share'
 import ShareEarn from './ShareEarn'
+import Help from './Help'
+import Chat from './Chat'
+import  Settings  from "./Settings";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -26,6 +29,9 @@ export default function App() {
         <Stack.Screen name="Gifts" component={Gifts} />
         <Stack.Screen name="Share and Get Free Delivery" component={Share} />
         <Stack.Screen name="Share and Earn" component={ShareEarn} />
+        <Stack.Screen name="Help" component={Help} />
+        <Stack.Screen name="Chat" component={Chat} />
+        <Stack.Screen name="Settings" component={Settings} />
       </Stack.Navigator>
     </NavigationContainer>
   );

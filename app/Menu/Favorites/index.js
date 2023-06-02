@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
       textAlign:'center',
       fontWeight:'bold',
       fontSize: 15 ,
-   Color:'black',
+ 
       position: "absolute",
       width: "100%",
       bottom: 60,

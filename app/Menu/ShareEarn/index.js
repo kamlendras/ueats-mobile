@@ -1,36 +1,80 @@
-import * as React from 'react';
-import { View, StyleSheet, Text,TouchableOpacity, } from "react-native";
+import React from 'react';
+import {Alert, Share, View,} from 'react-native';
+import {  StyleSheet, Text,TouchableOpacity} from "react-native";
 import Lottie from 'lottie-react-native';
 import { Button, List, useTheme } from 'react-native-paper';
-export default function Library() {
-    return (
-       
-        <
-    
-        >
-
-        <Lottie style={styles.cartinit} source={require('../../../assets/ShareEarn.json')} autoPlay loop />
-        <Lottie style={styles.rs} source={require('../../../assets/rs.json')} autoPlay loop />
-        <Text  style={styles.text}>Get 10₹ for your Every  {'\n'} Link Share.</Text> 
-             <View   style={styles.button}>
-         <Button
+const ShareExample = () => {
+  const onShare = async () => {
+    try {
+      const result = await Share.share({
+      title: 'App link',
+    message: 'Download the App Now , AppLink :https://play.google.com/store/apps/details?id=nic.goi.aarogyasetu&hl=en', 
+    url: 'https://play.google.com/store/apps/details?id=nic.goi.aarogyasetu&hl=en'
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error) {
+      Alert.alert(error.message);
+    }
+  };
+  return (
+    <>
+     <Lottie style={styles.cartinit} source={require('../../../assets/ShareEarn.json')} autoPlay loop />
+         <Lottie style={styles.rs} source={require('../../../assets/rs.json')} autoPlay loop />
+         <Text  style={styles.text}>Get 10₹ for your Every  {'\n'} Link Share.</Text> 
+              <View   style={styles.button}>
+              <Button
          mode="contained-tonal"
-         onPress={() => {}}
-       
+        //  onPress={() => {}}
+         title="Share"
+         onPress={onShare}
        >
        
 Share Now
        </Button>
-       </View>
-        </>
-      
-    );
-}
+        </View>
+      {/* <Button onPress={onShare} title="Share" /> */}
+    </>
+  );
+};
+
+export default ShareExample;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const styles = StyleSheet.create({
     button: {
  
       alignItems:'center',
-
+zIndex:1000,
       position: "absolute",
       width: "100%",
       bottom: 10,
@@ -44,7 +88,7 @@ const styles = StyleSheet.create({
       textAlign:'center',
       fontWeight:'bold',
       fontSize: 25 ,
-       Color:'black',
+      
       position: "absolute",
       width: "100%",
       bottom: 60,

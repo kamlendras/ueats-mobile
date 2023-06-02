@@ -36,6 +36,7 @@ export default function App() {
     setScanned(true);
     setText(data)
     console.log('Type: ' + type + '\nData: ' + data)
+    
   };
 
   // Check permissions and return the screens

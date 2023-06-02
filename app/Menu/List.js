@@ -24,17 +24,18 @@ import {Linking,Platform} from "react-native";
 const MyComponent = ({ navigation }) => (
   <>
  
-  <ScrollView vertical={true} showsVerticalScrollIndicator={false}>
+  <ScrollView vertical={true} showsVerticalScrollIndicator={true}>
     <View style={styles.container}>
-      <List.Section>
-        <TouchableRipple
+  
+       
+          {/* <List.Subheader>Some title</List.Subheader> */}
+          <TouchableRipple
           style={styles.ripple}
           onPress={() => {}}
           rippleColor="rgba(0, 0, 0, .32)"
         >
-          {/* <List.Subheader>Some title</List.Subheader> */}
           <List.Item
-         
+        
             title="Track Real-Time Order"
             onPress={() => navigation.navigate("Track")}
             left={() => (
@@ -43,7 +44,7 @@ const MyComponent = ({ navigation }) => (
               />
             )}
           />
-        </TouchableRipple>
+     </TouchableRipple>
     
         <Divider />
         <TouchableRipple
@@ -181,6 +182,7 @@ const MyComponent = ({ navigation }) => (
           rippleColor="rgba(0, 0, 0, .32)"
         >
           <List.Item
+           onPress={() => navigation.navigate("Chat")}
             title="Chat with Us"
             left={() => (
               <List.Icon
@@ -212,6 +214,7 @@ const MyComponent = ({ navigation }) => (
           rippleColor="rgba(0, 0, 0, .32)"
         >
           <List.Item
+           onPress={() => navigation.navigate("Settings")}
             title="Settings"
             left={() => (
               <List.Icon
@@ -227,6 +230,7 @@ const MyComponent = ({ navigation }) => (
           rippleColor="rgba(0, 0, 0, .32)"
         >
           <List.Item
+           onPress={() => navigation.navigate("Help")}
             title="Help"
             left={() => (
               <List.Icon
@@ -235,7 +239,7 @@ const MyComponent = ({ navigation }) => (
             )}
           />
         </TouchableRipple>
-      </List.Section>
+    
     </View>
   </ScrollView>
   </>
