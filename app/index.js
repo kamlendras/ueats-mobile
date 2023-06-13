@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import "react-native-gesture-handler";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -9,8 +10,10 @@ import PhoneInput from "react-native-phone-number-input";
 import { Button, TextInput } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createStackNavigator } from "@react-navigation/stack";
 import OTPInputView from "@twotalltotems/react-native-otp-input";
-
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { useFonts } from 'expo-font';
 const image = {
   uri: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=481&q=80",
 };
@@ -21,6 +24,23 @@ export default function App({ navigation }) {
   SplashScreen.preventAutoHideAsync();
   setTimeout(SplashScreen.hideAsync, 2000);
 
+  const [fontLoaded, setFontLoaded] = React.useState(false)
+
+  React.useEffect(() => {
+    Font.loadAsync({
+      "Geologic": require("../assets/fonts/Geologic.ttf"),
+    })
+    .then(() => {
+     setFontLoaded(true)
+    }) 
+  }, [])
+
+  // if (!fontLoaded) return null
+
+
+  // const [fontsLoaded] = useFonts({
+  //   'Geologic': require('../assets/fonts/Geologic.ttf'),
+  // });
   const [state, dispatch] = React.useReducer(
     (prevState, action) => {
       switch (action.type) {
@@ -97,7 +117,7 @@ export default function App({ navigation }) {
   );
 
   return (
-    <SafeAreaView
+    <SafeAreaProvider
       style={{ flex: 1, backgroundColor: "white", barStyle: "light-content" }}
     >
       <StatusBar style="light" backgroundColor="black" translucent={true} />
@@ -133,8 +153,10 @@ export default function App({ navigation }) {
               />
             ) : (
               // User is signed in
+
               <Stack.Screen
                 name="BottomNavigation"
+                initialRouteName="BottomNavigation"
                 options={{ headerShown: false }}
                 component={BottomNavigation}
               />
@@ -142,7 +164,7 @@ export default function App({ navigation }) {
           </Stack.Navigator>
         </NavigationContainer>
       </AuthContext.Provider>
-    </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
@@ -182,7 +204,7 @@ function SignIn() {
         )}
 
         <View style={styles.no1}>
-          <Text style={styles.no1text}>
+          <Text style={styles.no1text }>
             India's No.1 <Text style={{ color: "red" }}>Healthy</Text> and{" "}
             <Text style={{ color: "red" }}>Hygienic</Text> Food Service.
           </Text>
@@ -220,7 +242,7 @@ function SignIn() {
           </TouchableOpacity>
         </View>
         <View style={styles.otp}>
-          <OTPInputView
+          {/* <OTPInputView
             style={{ width: "80%", height: 200 }}
             pinCount={4}
             value={password}
@@ -234,7 +256,7 @@ function SignIn() {
             onCodeFilled={(code) => {
               console.log(`Code is ${code}, you are good to go!`);
             }}
-          />
+          /> */}
         </View>
 
         <View style={styles.continue}>
@@ -249,15 +271,10 @@ function SignIn() {
   );
 }
 
-
-
-
-
 const styles = StyleSheet.create({
   progress: {
     height: 10,
     width: undefined,
-   
   },
 
   container: {
@@ -288,7 +305,8 @@ const styles = StyleSheet.create({
   },
   no1text: {
     fontSize: 52,
-
+    fontFamily: 'Geologic',
+    
     color: "#06c167",
   },
   borderStyleBase: {

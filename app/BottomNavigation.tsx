@@ -8,6 +8,7 @@ import Scan from "./Scan";
 
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import { PaperProvider } from 'react-native-paper';
 const HomeRoute = () => <Home/>;
 
 const SearchRoute = () => <Search/>;
@@ -38,11 +39,13 @@ const BN = () => {
   });
 
   return (
+    <PaperProvider>
     <BottomNavigation
       navigationState={{ index, routes }}
       onIndexChange={setIndex}
       renderScene={renderScene}
     />
+       </PaperProvider>
   );
 };
 export default BN;

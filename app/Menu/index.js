@@ -15,14 +15,18 @@ import ShareEarn from './ShareEarn'
 import Help from './Help'
 import Chat from './Chat'
 import  Settings  from "./Settings";
+import 'react-native-gesture-handler';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer independent={true}>
-      <Stack.Navigator>
-        <Stack.Screen name="List" component={List} />
-        <Stack.Screen name="Track" component={Track} />
+    <NavigationContainer independent={true}   
+    >
+      <Stack.Navigator >
+        <Stack.Screen name="List" component={List}  options={{
+                  headerShown: false,
+                }} />
+        <Stack.Screen name="Track" component={Track} screenOptions={{ presentation: 'modal' }}/>
         <Stack.Screen name="Favorites" component={Favorites} />
         <Stack.Screen name="Order" component={Order} />
         <Stack.Screen name="Coupon" component={Coupon} />

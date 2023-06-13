@@ -21,6 +21,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import TrackMain from './Track';
 import {Linking,Platform} from "react-native";
 // import { HStack, VStack } from 'react-native-flex-layout';
+
 const MyComponent = ({ navigation }) => (
   <>
  
@@ -182,7 +183,8 @@ const MyComponent = ({ navigation }) => (
           rippleColor="rgba(0, 0, 0, .32)"
         >
           <List.Item
-           onPress={() => navigation.navigate("Chat")}
+          //  onPress={() => navigation.navigate("Chat")}
+          onPress={()=>{Linking.openURL('sms:+919473611651');} }
             title="Chat with Us"
             left={() => (
               <List.Icon

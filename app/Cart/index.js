@@ -10,7 +10,7 @@ export default function Library() {
         >
 
         <Lottie style={styles.cartinit} source={require('../../assets/cart3.json')} autoPlay loop />
-        <Text  style={styles.text}>You have 0 Items In Cart</Text> 
+        <Text  style={styles.text}>You have 0 Items in your Cart.</Text> 
              <View   style={styles.button}>
          <Button
          mode="contained-tonal"
