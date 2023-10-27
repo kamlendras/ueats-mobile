@@ -20,6 +20,8 @@
 ### https://buymeacoffee.com/ksingh<br/>
 ### https://patreon.com/ksingh<br/>
 
+You can donate via crypto currency pretty soon!!
+
 
 
 
