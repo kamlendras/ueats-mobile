@@ -16,9 +16,9 @@
 
 # 💧Donate<br/>
 ### Donations can be made at <br/>
-### https://liberapay.com/kamlendras<br/>
-### https://buymeacoffee.com/kamlendras<br/>
-### https://patreon.com/kamlendras<br/>
+###https://liberapay.com/kamlendras<br/>
+###https://buymeacoffee.com/kamlendras<br/>
+###https://patreon.com/kamlendras<br/>
 
 
 
